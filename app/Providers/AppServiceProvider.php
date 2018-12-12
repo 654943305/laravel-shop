@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\UserAddress;
+use App\Policies\UserAddressPolicy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,4 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+    protected $policies = [
+        UserAddress::class => UserAddressPolicy::class,
+    ];
 }
