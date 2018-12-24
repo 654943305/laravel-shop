@@ -28,7 +28,5 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    protected $policies = [
-        UserAddress::class => UserAddressPolicy::class,
-    ];
+
 }
