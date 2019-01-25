@@ -11,12 +11,15 @@
 |
 */
 
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
+
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
 Route::get('products', 'ProductsController@index')->name('products.index');
 
 
 Auth::routes();
+
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/email_verification/send', 'EmailVerificationController@send')->name('email_verification.send');
@@ -61,7 +64,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
 
         Route::post('crowdfunding_orders', 'OrdersController@crowdfunding')->name('crowdfunding_orders.store');
-        Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
+
 
         Route::post('payment/{order}/installment', 'PaymentController@payByInstallment')->name('payment.installment');
 
